@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,8 +36,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.21.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.21\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.EntityFramework, Version=8.0.21.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.EntityFramework.8.0.21\lib\net452\MySql.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,28 +81,198 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.21\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.21\lib\net452\Zstandard.Net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Form1.cs">
+    <Compile Include="Models\alkalmazottifiokok-partial.cs" />
+    <Compile Include="Models\alkalmazottifiokok.cs">
+      <DependentUpon>repuloter_projectEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\jarat-partial.cs" />
+    <Compile Include="Models\jarat.cs">
+      <DependentUpon>repuloter_projectEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\kedvezmenyek-partial.cs" />
+    <Compile Include="Models\kedvezmenyek.cs">
+      <DependentUpon>repuloter_projectEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\meret-partial.cs" />
+    <Compile Include="Models\meret.cs">
+      <DependentUpon>repuloter_projectEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\repgeptars-partial.cs" />
+    <Compile Include="Models\repgeptars.cs">
+      <DependentUpon>repuloter_projectEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\repulogep-partial.cs" />
+    <Compile Include="Models\repulogep.cs">
+      <DependentUpon>repuloter_projectEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\repuloter_projectEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>repuloter_projectEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\repuloter_projectEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>repuloter_projectEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\repuloter_projectEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>repuloter_projectEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\utas-partial.cs" />
+    <Compile Include="Models\utas.cs">
+      <DependentUpon>repuloter_projectEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\utazas-partial.cs" />
+    <Compile Include="Models\utazas.cs">
+      <DependentUpon>repuloter_projectEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presenters\AdatbazisKezeloPresenter.cs" />
+    <Compile Include="Presenters\BejelentkezesPresenter.cs" />
+    <Compile Include="Presenters\JaratokPresenter.cs" />
+    <Compile Include="Presenters\RepulogepPresenter.cs" />
+    <Compile Include="Presenters\UtasokPresenter.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\ElfelejtettJelszoRepository.cs" />
+    <Compile Include="Repository\JaratokRepository.cs" />
+    <Compile Include="Repository\RepulogepRepository.cs" />
+    <Compile Include="Repository\UtasokRepository.cs" />
+    <Compile Include="Services\AdatbazisKezelo.cs" />
+    <Compile Include="Services\AdatbazisKezeloErtekFeltolto.cs" />
+    <Compile Include="Services\ErvenyessegEllenorzes.cs" />
+    <Compile Include="Services\Hash.cs" />
+    <Compile Include="ViewInterfaces\IDataGridList.cs" />
+    <Compile Include="ViewInterfaces\ILogin.cs" />
+    <Compile Include="ViewInterfaces\IUtasView.cs" />
+    <Compile Include="Views\FormAdatSzerkeszto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Views\FormAdatSzerkeszto.Designer.cs">
+      <DependentUpon>FormAdatSzerkeszto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormFoMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormFoMenu.Designer.cs">
+      <DependentUpon>FormFoMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\FormBejelentkezes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormBejelentkezes.Designer.cs">
+      <DependentUpon>FormBejelentkezes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormJaratok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormJaratok.Designer.cs">
+      <DependentUpon>FormJaratok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormMeglevoUtasok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormMeglevoUtasok.Designer.cs">
+      <DependentUpon>FormMeglevoUtasok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormMeglevoUtasokTeljes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormMeglevoUtasokTeljes.Designer.cs">
+      <DependentUpon>FormMeglevoUtasokTeljes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormRepulogepek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormRepulogepek.Designer.cs">
+      <DependentUpon>FormRepulogepek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormujUtas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormujUtas.Designer.cs">
+      <DependentUpon>FormujUtas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormUtasDiagram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormUtasDiagram.Designer.cs">
+      <DependentUpon>FormUtasDiagram.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Views\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormAdatSzerkeszto.resx">
+      <DependentUpon>FormAdatSzerkeszto.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormFoMenu.resx">
+      <DependentUpon>FormFoMenu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormBejelentkezes.resx">
+      <DependentUpon>FormBejelentkezes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormJaratok.resx">
+      <DependentUpon>FormJaratok.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormMeglevoUtasok.resx">
+      <DependentUpon>FormMeglevoUtasok.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormMeglevoUtasokTeljes.resx">
+      <DependentUpon>FormMeglevoUtasokTeljes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormRepulogepek.resx">
+      <DependentUpon>FormRepulogepek.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormujUtas.resx">
+      <DependentUpon>FormujUtas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormUtasDiagram.resx">
+      <DependentUpon>FormUtasDiagram.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="ClassDiagram.cd" />
+    <EntityDeploy Include="Models\repuloter_projectEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>repuloter_projectEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\repuloter_projectEntities.edmx.diagram">
+      <DependentUpon>repuloter_projectEntities.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\repuloterProject.Models.alkalmazottifiokok.datasource" />
+    <None Include="Properties\DataSources\repuloterProject.Models.jarat.datasource" />
+    <None Include="Properties\DataSources\repuloterProject.Models.kedvezmenyek.datasource" />
+    <None Include="Properties\DataSources\repuloterProject.Models.meret.datasource" />
+    <None Include="Properties\DataSources\repuloterProject.Models.repgeptars.datasource" />
+    <None Include="Properties\DataSources\repuloterProject.Models.repulogep.datasource" />
+    <None Include="Properties\DataSources\repuloterProject.Models.repuloter_projectEntities.datasource" />
+    <None Include="Properties\DataSources\repuloterProject.Models.utas.datasource" />
+    <None Include="Properties\DataSources\repuloterProject.Models.utazas.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,15 +282,33 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="UMLDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Presenters\" />
-    <Folder Include="Repository\" />
-    <Folder Include="ViewInterfaces\" />
+    <Content Include="Models\repuloter_projectEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>repuloter_projectEntities.edmx</DependentUpon>
+      <LastGenOutput>repuloter_projectEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\repuloter_projectEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>repuloter_projectEntities.edmx</DependentUpon>
+      <LastGenOutput>repuloter_projectEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
 </Project>

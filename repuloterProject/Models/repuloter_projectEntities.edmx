@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="repuloter_projectModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="alkalmazottifiokok">
+          <Key>
+            <PropertyRef Name="alkalmazottifiokokAz" />
+          </Key>
+          <Property Name="alkalmazottifiokokAz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="felhasznalonevA" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="jelszoA" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="emailA" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="jelszoemlekezteto" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="jarat">
+          <Key>
+            <PropertyRef Name="jaratszam" />
+          </Key>
+          <Property Name="jaratszam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="honnan" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="hova" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="indulasido" Type="date" Nullable="false" />
+          <Property Name="visszaindulasido" Type="date" Nullable="false" />
+          <Property Name="terminal" Type="bool" Nullable="false" />
+          <Property Name="rgepkod" Type="int" Nullable="false" />
+          <Property Name="jegyar" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kedvezmenyek">
+          <Key>
+            <PropertyRef Name="kedvAz" />
+          </Key>
+          <Property Name="kedvAz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kedvNeve" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="kedvMerteke" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="meret">
+          <Key>
+            <PropertyRef Name="meretAz" />
+          </Key>
+          <Property Name="meretAz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="meretek" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="repgeptars">
+          <Key>
+            <PropertyRef Name="rgepTarsAz" />
+          </Key>
+          <Property Name="rgepTarsAz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="repTarsNeve" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="repulogep">
+          <Key>
+            <PropertyRef Name="rgepkod" />
+          </Key>
+          <Property Name="rgepkod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="meretAz" Type="int" Nullable="false" />
+          <Property Name="rgepTarsAz" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="utas">
+          <Key>
+            <PropertyRef Name="utasAz" />
+          </Key>
+          <Property Name="utasAz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nev" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="szulido" Type="date" Nullable="false" />
+          <Property Name="szemAzon" Type="int" Nullable="false" />
+          <Property Name="kedvAz" Type="int" Nullable="false" />
+          <Property Name="felhasznalonev" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="jelszo" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="mobiltelefonszam" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="utazas">
+          <Key>
+            <PropertyRef Name="utazasAz" />
+          </Key>
+          <Property Name="utazasAz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jaratszamAz" Type="int" Nullable="false" />
+          <Property Name="utasAz" Type="int" Nullable="false" />
+          <Property Name="osztaly" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="repuloter_projectModelStoreContainer">
+          <EntitySet Name="alkalmazottifiokok" EntityType="Self.alkalmazottifiokok" Schema="repuloter_project" store:Type="Tables" />
+          <EntitySet Name="jarat" EntityType="Self.jarat" Schema="repuloter_project" store:Type="Tables" />
+          <EntitySet Name="kedvezmenyek" EntityType="Self.kedvezmenyek" Schema="repuloter_project" store:Type="Tables" />
+          <EntitySet Name="meret" EntityType="Self.meret" Schema="repuloter_project" store:Type="Tables" />
+          <EntitySet Name="repgeptars" EntityType="Self.repgeptars" Schema="repuloter_project" store:Type="Tables" />
+          <EntitySet Name="repulogep" EntityType="Self.repulogep" Schema="repuloter_project" store:Type="Tables" />
+          <EntitySet Name="utas" EntityType="Self.utas" Schema="repuloter_project" store:Type="Tables" />
+          <EntitySet Name="utazas" EntityType="Self.utazas" Schema="repuloter_project" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="repuloter_projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="repuloter_projectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="alkalmazottifiokok" EntityType="repuloter_projectModel.alkalmazottifiokok" />
+          <EntitySet Name="jarat" EntityType="repuloter_projectModel.jarat" />
+          <EntitySet Name="kedvezmenyek" EntityType="repuloter_projectModel.kedvezmenyek" />
+          <EntitySet Name="meret" EntityType="repuloter_projectModel.meret" />
+          <EntitySet Name="repgeptars" EntityType="repuloter_projectModel.repgeptars" />
+          <EntitySet Name="repulogep" EntityType="repuloter_projectModel.repulogep" />
+          <EntitySet Name="utas" EntityType="repuloter_projectModel.utas" />
+          <EntitySet Name="utazas" EntityType="repuloter_projectModel.utazas" />
+        </EntityContainer>
+        <EntityType Name="alkalmazottifiokok">
+          <Key>
+            <PropertyRef Name="alkalmazottifiokokAz" />
+          </Key>
+          <Property Name="alkalmazottifiokokAz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="felhasznalonevA" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="jelszoA" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="emailA" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="jelszoemlekezteto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="jarat">
+          <Key>
+            <PropertyRef Name="jaratszam" />
+          </Key>
+          <Property Name="jaratszam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="honnan" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="hova" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="indulasido" Type="DateTime" Nullable="false" />
+          <Property Name="visszaindulasido" Type="DateTime" Nullable="false" />
+          <Property Name="terminal" Type="Boolean" Nullable="false" />
+          <Property Name="rgepkod" Type="Int32" Nullable="false" />
+          <Property Name="jegyar" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kedvezmenyek">
+          <Key>
+            <PropertyRef Name="kedvAz" />
+          </Key>
+          <Property Name="kedvAz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kedvNeve" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="kedvMerteke" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="meret">
+          <Key>
+            <PropertyRef Name="meretAz" />
+          </Key>
+          <Property Name="meretAz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="meretek" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="repgeptars">
+          <Key>
+            <PropertyRef Name="rgepTarsAz" />
+          </Key>
+          <Property Name="rgepTarsAz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="repTarsNeve" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="repulogep">
+          <Key>
+            <PropertyRef Name="rgepkod" />
+          </Key>
+          <Property Name="rgepkod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="meretAz" Type="Int32" Nullable="false" />
+          <Property Name="rgepTarsAz" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="utas">
+          <Key>
+            <PropertyRef Name="utasAz" />
+          </Key>
+          <Property Name="utasAz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nev" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="szulido" Type="DateTime" Nullable="false" />
+          <Property Name="szemAzon" Type="Int32" Nullable="false" />
+          <Property Name="kedvAz" Type="Int32" Nullable="false" />
+          <Property Name="felhasznalonev" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="jelszo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="mobiltelefonszam" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="utazas">
+          <Key>
+            <PropertyRef Name="utazasAz" />
+          </Key>
+          <Property Name="utazasAz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="jaratszamAz" Type="Int32" Nullable="false" />
+          <Property Name="utasAz" Type="Int32" Nullable="false" />
+          <Property Name="osztaly" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="repuloter_projectModelStoreContainer" CdmEntityContainer="repuloter_projectEntities">
+          <EntitySetMapping Name="alkalmazottifiokok">
+            <EntityTypeMapping TypeName="repuloter_projectModel.alkalmazottifiokok">
+              <MappingFragment StoreEntitySet="alkalmazottifiokok">
+                <ScalarProperty Name="jelszoemlekezteto" ColumnName="jelszoemlekezteto" />
+                <ScalarProperty Name="emailA" ColumnName="emailA" />
+                <ScalarProperty Name="jelszoA" ColumnName="jelszoA" />
+                <ScalarProperty Name="felhasznalonevA" ColumnName="felhasznalonevA" />
+                <ScalarProperty Name="alkalmazottifiokokAz" ColumnName="alkalmazottifiokokAz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jarat">
+            <EntityTypeMapping TypeName="repuloter_projectModel.jarat">
+              <MappingFragment StoreEntitySet="jarat">
+                <ScalarProperty Name="jegyar" ColumnName="jegyar" />
+                <ScalarProperty Name="rgepkod" ColumnName="rgepkod" />
+                <ScalarProperty Name="terminal" ColumnName="terminal" />
+                <ScalarProperty Name="visszaindulasido" ColumnName="visszaindulasido" />
+                <ScalarProperty Name="indulasido" ColumnName="indulasido" />
+                <ScalarProperty Name="hova" ColumnName="hova" />
+                <ScalarProperty Name="honnan" ColumnName="honnan" />
+                <ScalarProperty Name="jaratszam" ColumnName="jaratszam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kedvezmenyek">
+            <EntityTypeMapping TypeName="repuloter_projectModel.kedvezmenyek">
+              <MappingFragment StoreEntitySet="kedvezmenyek">
+                <ScalarProperty Name="kedvMerteke" ColumnName="kedvMerteke" />
+                <ScalarProperty Name="kedvNeve" ColumnName="kedvNeve" />
+                <ScalarProperty Name="kedvAz" ColumnName="kedvAz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="meret">
+            <EntityTypeMapping TypeName="repuloter_projectModel.meret">
+              <MappingFragment StoreEntitySet="meret">
+                <ScalarProperty Name="meretek" ColumnName="meretek" />
+                <ScalarProperty Name="meretAz" ColumnName="meretAz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="repgeptars">
+            <EntityTypeMapping TypeName="repuloter_projectModel.repgeptars">
+              <MappingFragment StoreEntitySet="repgeptars">
+                <ScalarProperty Name="repTarsNeve" ColumnName="repTarsNeve" />
+                <ScalarProperty Name="rgepTarsAz" ColumnName="rgepTarsAz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="repulogep">
+            <EntityTypeMapping TypeName="repuloter_projectModel.repulogep">
+              <MappingFragment StoreEntitySet="repulogep">
+                <ScalarProperty Name="rgepTarsAz" ColumnName="rgepTarsAz" />
+                <ScalarProperty Name="meretAz" ColumnName="meretAz" />
+                <ScalarProperty Name="tipus" ColumnName="tipus" />
+                <ScalarProperty Name="rgepkod" ColumnName="rgepkod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="utas">
+            <EntityTypeMapping TypeName="repuloter_projectModel.utas">
+              <MappingFragment StoreEntitySet="utas">
+                <ScalarProperty Name="mobiltelefonszam" ColumnName="mobiltelefonszam" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="jelszo" ColumnName="jelszo" />
+                <ScalarProperty Name="felhasznalonev" ColumnName="felhasznalonev" />
+                <ScalarProperty Name="kedvAz" ColumnName="kedvAz" />
+                <ScalarProperty Name="szemAzon" ColumnName="szemAzon" />
+                <ScalarProperty Name="szulido" ColumnName="szulido" />
+                <ScalarProperty Name="nev" ColumnName="nev" />
+                <ScalarProperty Name="utasAz" ColumnName="utasAz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="utazas">
+            <EntityTypeMapping TypeName="repuloter_projectModel.utazas">
+              <MappingFragment StoreEntitySet="utazas">
+                <ScalarProperty Name="osztaly" ColumnName="osztaly" />
+                <ScalarProperty Name="utasAz" ColumnName="utasAz" />
+                <ScalarProperty Name="jaratszamAz" ColumnName="jaratszamAz" />
+                <ScalarProperty Name="utazasAz" ColumnName="utazasAz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
